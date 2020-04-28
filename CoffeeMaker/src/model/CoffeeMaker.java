@@ -2,8 +2,6 @@ package model;
 
 import model.exceptions.*;
 
-import java.beans.Beans;
-
 /**
  * A coffee maker used to train baristas.
  *
@@ -11,6 +9,10 @@ import java.beans.Beans;
  */
 
 public class CoffeeMaker {
+    private final double MIN_BEANS = 2.4;
+    private final double MAX_BEANS = 2.6;
+    private final double MIN_WATER = 14.75;
+
     private int cupsRemaining;
     private int timeSinceLastBrew;
 
@@ -24,9 +26,9 @@ public class CoffeeMaker {
     //          throws BeansAmountException if beans are not between 2.4 and 2.6
     //          throws WaterException if water <= 14.75
     public void brew(double beans, double water) throws BeansAmountException, WaterException {
-        if (beans < 2.40) throw new NotEnoughBeansException(beans);
-        else if (beans > 2.60) throw new TooManyBeansException(beans);
-        else if (water <= 14.75) throw new WaterException(water);
+        if (beans < MIN_BEANS) throw new NotEnoughBeansException(beans);
+        else if (beans > MAX_BEANS) throw new TooManyBeansException(beans);
+        else if (water <= MIN_WATER) throw new WaterException(water);
 
         this.cupsRemaining = 20;
         this.timeSinceLastBrew = 0;
