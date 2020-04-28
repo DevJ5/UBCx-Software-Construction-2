@@ -65,7 +65,8 @@ public class CoffeeMaker {
     //MODIFIES: this
     //EFFECTS: sets time since last brew
     public void setTimeSinceLastBrew(int time) {
-        // Exception ?
+        if (time < 0) throw new IllegalArgumentException();
+
         this.timeSinceLastBrew = time;
     }
 }
