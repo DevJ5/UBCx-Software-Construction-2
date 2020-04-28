@@ -5,6 +5,6 @@ public class WaterException extends RuntimeException {
 
     public WaterException(double amountOfWater) {
         super(amountOfWater + " " + "is not enough water.");
-        this. amountOfWater = amountOfWater;
+        this.amountOfWater = amountOfWater;
     }
 }
