@@ -9,6 +9,7 @@ import model.exceptions.WaterException;
 public class Main {
 
     public static void main(String[] args) {
+        // Dummy code
         CoffeeMaker coffeeMaker = new CoffeeMaker();
         try {
             coffeeMaker.brew(2.4, 50);
