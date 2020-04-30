@@ -41,7 +41,8 @@ public class PetPairs {
         store.addPet(parrot);
         store.addPet(cat);
 
-        System.out.println();
+        System.out.println("--------------------------");
+        store.displayAllPetsWithAttributes(false, true, 55.0);
 
         Pet foundPet = store.findMatchingPet("dog","black");
         if (foundPet != null && sally.canAffordPet(foundPet)) {
