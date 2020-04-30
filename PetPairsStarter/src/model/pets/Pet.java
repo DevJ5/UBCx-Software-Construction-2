@@ -2,12 +2,15 @@ package model.pets;
 
 import model.Human;
 
+import java.util.Objects;
+
 public class Pet {
     protected boolean friendly;
     protected boolean needsAttention;
     protected String species;
     protected String color;
     protected double price;
+    private Human human;
 
     public Pet(String species, String color, boolean friendly, boolean needsAttention, double price){
         this.species = species;
@@ -41,7 +44,7 @@ public class Pet {
     }
 
     public Human getHuman() {
-        return null;
+        return human;
     }
 
     //REQUIRES: human != null
@@ -49,6 +52,7 @@ public class Pet {
     //EFFECTS: adopts human, and vice versa
     public void adoptHuman(Human human) {
         System.out.println("Adopting a human!");
+        this.human = human;
 
         if (!human.hasPet(this)){
             human.adoptPet(this);
@@ -63,7 +67,21 @@ public class Pet {
                 ", friendly=" + friendly +
                 ", color='" + color + '\'' +
                 ", price='" + price + '\'' +
-                ", human= " + //TODO 5
+                ", human= " + human +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Pet)) return false;
+        Pet pet = (Pet) o;
+        return Objects.equals(species, pet.species) &&
+                Objects.equals(color, pet.color);
+    }
+
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(species, color);
+//    }
 }

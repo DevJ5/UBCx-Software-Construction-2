@@ -23,7 +23,6 @@ public class PetPairs {
         Human george = new Human("George");
         Human sally = new Human("Sally");
         Human jim = new Human("Jim");
-
         animals.add(cat);
         animals.add(dog);
         animals.add(parrot);
@@ -34,6 +33,7 @@ public class PetPairs {
         people.add(jim);
 
         cat.adoptHuman(george);
+        System.out.println(cat.toString());
         sally.addSpendibees(200.00);
 
         PetStore store = new PetStore();
