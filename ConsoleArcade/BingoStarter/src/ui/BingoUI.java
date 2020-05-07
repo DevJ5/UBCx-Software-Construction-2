@@ -25,7 +25,7 @@ public class BingoUI {
         game = new Game();
         playerCard = new PlayerCard();
 
-        //TODO: change addCard to new method name
+        //TODO:  change addCard to new method name
         game.addCard(playerCard);
         game.addCard(new PlayerCard());
         game.addCard(new PlayerCard());
