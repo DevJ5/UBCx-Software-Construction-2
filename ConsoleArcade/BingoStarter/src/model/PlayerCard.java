@@ -2,15 +2,15 @@ package model;
 
 import model.random.BingoNumber;
 import model.random.NumberSquare;
+import model.observer_pattern.Observer;
 
 import java.util.*;
 
 import static model.Game.CARD_SIZE;
 
-//TODO: implement Observer pattern
-public class PlayerCard {
+public class PlayerCard implements Observer {
 
-    private List<NumberSquare> numbers;
+    private final List<NumberSquare> numbers;
     private List<Collection<Integer>> colIndices;
     private List<Collection<Integer>> rowIndices;
     private List<Collection<Integer>> diagonalIndices;
@@ -21,19 +21,23 @@ public class PlayerCard {
         numbers = new ArrayList<>();
         populateIndices();
 
+        // Insert number squares
         for(int i=0; i < CARD_SIZE; i++){
             numbers.add(new NumberSquare());
         }
     }
 
-    // TODO: refactor this method
+    public void update(Object o) {
+        checkCallMatch(o);
+    }
+
     //MODIFIES: this
     //EFFECTS: checks whether bingo call matches a square in this card, stamps if so, and updates hasBingo
     public void checkCallMatch(Object o){
-        BingoNumber bc = (BingoNumber) o;
-        int i = numberSquaresMatch(bc);
+        BingoNumber bingoNumber = (BingoNumber) o;
+        int i = numberSquaresMatch(bingoNumber);
         for (int j=0; j < i; j++) {
-            int index = getSquareIndexOfNextUnstamped(bc);
+            int index = getSquareIndexOfNextUnstamped(bingoNumber);
             stampSquare(index);
             checkIfBingo(index);
         }
