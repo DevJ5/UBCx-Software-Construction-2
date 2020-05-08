@@ -30,7 +30,7 @@ public class Game extends Subject {
 
     public List<PlayerCard> getCards() {
         List<PlayerCard> playerCards = new ArrayList<>();
-        for (Observer o : getObservers()) { //NOTE: refactor this line ONLY.
+        for (Observer o : getObservers()) {
             if (o.getClass().getSimpleName().equals("PlayerCard"))
                 playerCards.add((PlayerCard) o);
         }
