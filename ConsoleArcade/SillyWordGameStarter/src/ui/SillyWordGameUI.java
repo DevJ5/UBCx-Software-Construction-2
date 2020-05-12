@@ -26,20 +26,17 @@ public class SillyWordGameUI {
     //EFFECTS: fills each needed word entry with user input
     private void userInteraction(){
         for (Phrase phrase : wordGame) {
-            if (phrase.needsWord()) {
-                WordEntry w = phrase.getNeededWordEntry();
-                printWordInputDescription(w);
+            WordEntry w = phrase.getNeededWordEntry();
+            printWordInputDescription(w);
 
-                String input = "";
-                while (input.length() == 0) {
-                    if (s.hasNext())
-                        input = s.nextLine();
-                }
-                input = input.trim();
-
-                phrase.fillWordEntry(input);
+            String input = "";
+            while (input.length() == 0) {
+                if (s.hasNext())
+                    input = s.nextLine();
             }
+            input = input.trim();
 
+            phrase.fillWordEntry(input);
         }
     }
 
