@@ -6,3 +6,4 @@ Associations shows the fields of a class. These arrows have a tiny arrowhead. A 
 
 ## Sequence Diagrams
 ![Sequence diagram](https://github.com/DevJ5/UBCx-Software-Construction-2/blob/master/sequence-diagram.png)
+
